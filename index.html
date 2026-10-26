@@ -12,7 +12,7 @@
 
     <!-- Open Graph für Social Media & Discord-Vorschau -->
     <meta property="og:title" content="Eigene Discord Bots erstellen lassen">
-    <meta property="og:description" content="Du suchst einen maßgeschneiderten Discord Bot? Ich programmiere deinen Bot nach deinen Wünschen. Schreib mich direkt an!">
+    <meta property="og:description" content="Du suchst einen maßgeschneiderten Discord Bot? Ich programmiere deinen Bot nach deinen Wünschen. Schreib mir direkt eine Anfrage!">
     <meta property="og:type" content="website">
 
     <style>
@@ -69,17 +69,45 @@
             text-align: center;
             border: 1px solid #6366f1;
         }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #cbd5e1;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background-color: #0f172a;
+            color: #fff;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #5865f2;
+        }
         .cta-button {
             display: inline-block;
             background-color: #5865f2;
             color: #ffffff;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            padding: 15px 30px;
+            padding: 12px 25px;
             border-radius: 8px;
-            text-decoration: none;
-            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
             transition: background 0.3s ease;
+            width: 100%;
+            max-width: 500px;
         }
         .cta-button:hover {
             background-color: #4752c4;
@@ -116,11 +144,20 @@
         </section>
 
         <section class="cta-section">
-            <h2>Du möchtest deinen eigenen Bot?</h2>
-            <p>Schreibe mir einfach direkt auf Discord oder erstelle ein Ticket, um dein Projekt zu besprechen!</p>
+            <h2>Projekt anfragen</h2>
+            <p style="margin-bottom: 20px; color: #cbd5e1;">Fülle das Formular aus, um mir deine Anfrage zu senden:</p>
             
-            <!-- HIER DEINEN DISCORD-LINK EINTRAGEN -->
-            <a href="https://discord.com" target="_blank" class="cta-button">Jetzt auf Discord kontaktieren</a>
+            <form action="https://formspree.io/f/xwllllaa" method="POST">
+                <div class="form-group">
+                    <label for="email">Deine E-Mail-Adresse:</label>
+                    <input type="email" id="email" name="email" required placeholder="name@beispiel.de">
+                </div>
+                <div class="form-group">
+                    <label for="message">Deine Projektidee / Nachricht:</label>
+                    <textarea id="message" name="message" rows="4" required placeholder="Beschreibe kurz, was dein Bot können soll..."></textarea>
+                </div>
+                <button type="submit" class="cta-button">E-Mail senden</button>
+            </form>
         </section>
 
         <footer>
