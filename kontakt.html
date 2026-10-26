@@ -1,1 +1,55 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt | BotStudio</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; line-height: 1.6; padding: 20px; display: flex; flex-direction: column; min-height: 100vh; }
+        .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; flex: 1; }
+        h1 { color: #5865f2; text-align: center; margin-bottom: 10px; }
+        p.subtitle { text-align: center; color: #94a3b8; margin-bottom: 30px; }
+        .form-card { background: #1e293b; padding: 30px; border-radius: 12px; border: 1px solid #334155; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #cbd5e1; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #475569; background-color: #0f172a; color: #fff; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #5865f2; }
+        .btn { width: 100%; background-color: #5865f2; color: #fff; font-size: 1.1rem; font-weight: bold; padding: 12px; border: none; border-radius: 8px; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background-color: #4752c4; }
+        footer { text-align: center; margin-top: 50px; color: #64748b; font-size: 0.9rem; border-top: 1px solid #1e293b; padding-top: 20px; }
+        footer a { color: #94a3b8; text-decoration: none; margin: 0 10px; }
+        footer a:hover { color: #5865f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kontaktformular</h1>
+        <p class="subtitle">Beschreibe dein Projekt und wir melden uns per E-Mail bei dir.</p>
+
+        <div class="form-card">
+            <form action="https://formspree.io/f/xwllllaa" method="POST">
+                <div class="form-group">
+                    <label for="email">Deine E-Mail-Adresse:</label>
+                    <input type="email" id="email" name="email" required placeholder="name@beispiel.de">
+                </div>
+                <div class="form-group">
+                    <label for="message">Deine Projektidee / Nachricht:</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Welche Funktionen soll dein Discord Bot haben?"></textarea>
+                </div>
+                <button type="submit" class="btn">E-Mail absenden</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>&copy; BotStudio</p>
+            <p style="margin-top: 8px;">
+                <a href="index.html">Startseite</a> | 
+                <a href="kontakt.html">Kontakt</a> | 
+                <a href="impressum.html">Impressum</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
