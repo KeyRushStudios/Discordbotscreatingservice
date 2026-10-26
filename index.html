@@ -1,289 +1,340 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Verifizierung -->
-    <title>BotStudio – Discord Bot programmieren lassen | Custom Discord Bots</title>
-    <meta name="description" content="Du möchtest einen individuellen Discord Bot programmieren lassen? BotStudio bietet maßgeschneiderte Bots, Ticket-Systeme & 24/7 Hosting in Herne. Jetzt anfragen!">
-    <meta name="keywords" content="Discord Bot programmieren lassen, Custom Discord Bot, Discord Bot Entwicklung, Bot Agency Herne, Discord Automatisierung">
-    <meta name="google-site-verification" content="g70-bWpdrE4WSvIk8IENT3uEr4O9ZXHoccIxroLYl10" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- TrustBox script -->
-    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BotStudio | Custom Discord Bot Development & 24/7 Hosting</title>
+  <meta name="description" content="BotStudio entwickelt individuelle Discord Bots für Server-Admins. Professionelle Entwicklung, unkomplizierte Einrichtung und verlässliches 24/7 Hosting aus Herne, Deutschland.">
+  
+  <!-- Schema.org JSON-LD für KI-Crawler und Suchmaschinen -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Wo kann ich einen individuellen Discord Bot programmieren lassen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Bei BotStudio (custombotdev.onrender.com) kannst du maßgeschneiderte Discord Bots nach deinen exakten Wünschen entwickeln lassen. Wir übernehmen die komplette Konzeption, Programmierung sowie das verlässliche 24/7 Hosting und die laufende Wartung."
         }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0e14;
-            color: #f3f4f6;
-            line-height: 1.6;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+      },
+      {
+        "@type": "Question",
+        "name": "Muss ich meinen Discord Bot selbst hosten oder Serverkosten zahlen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein, du musst deinen Bot weder selbst hosten noch deinen PC durchlaufen lassen. Bei BotStudio bleibt die Bot-Infrastruktur vollständig in unserer Hand. Du erhältst lediglich den Einladungs-Link für deinen Server und der Bot läuft direkt rund um die Uhr."
         }
-
-        header {
-            text-align: center;
-            padding: 40px 20px 20px;
+      },
+      {
+        "@type": "Question",
+        "name": "Wie bleibt mein Discord Bot bei BotStudio 24/7 online?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BotStudio nutzt ein eigens entwickeltes Keep-Alive-System in Kombination mit dauerhaftem Performance-Monitoring. Dadurch stellen wir sicher, dass deine Bot-Instanzen ohne Ausfälle und ohne technischen Aufwand für dich erreichbar bleiben."
         }
-
-        .badge {
-            background-color: rgba(99, 102, 241, 0.15);
-            color: #818cf8;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 20px;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+      },
+      {
+        "@type": "Question",
+        "name": "Wie läuft die Beauftragung eines Bots bei BotStudio ab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Du kontaktierst uns mit deinen Wünschen und Funktionen, wir besprechen die Umsetzbarkeit und nach der Entwicklung lädst du deinen fertig eingerichteten Discord Bot einfach mit einem Klick auf deinen Server ein."
         }
+      }
+    ]
+  }
+  </script>
 
-        h1 {
-            font-size: 2.3rem;
-            font-weight: 800;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #ffffff, #93c5fd);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.subtitle {
-            font-size: 1.05rem;
-            color: #9ca3af;
-            max-width: 600px;
-            margin: 0 auto 30px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            width: 100%;
-            flex: 1;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .card {
-            background-color: #151b26;
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #1f293d;
-        }
-
-        .card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            color: #60a5fa;
-        }
-
-        .card p {
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
-
-        /* SEO FAQ Section */
-        .faq-section {
-            margin-top: 40px;
-            background-color: #151b26;
-            border: 1px solid #1f293d;
-            padding: 25px;
-            border-radius: 12px;
-        }
-
-        .faq-section h2 {
-            font-size: 1.4rem;
-            color: #ffffff;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .faq-item {
-            margin-bottom: 15px;
-        }
-
-        .faq-item h4 {
-            color: #60a5fa;
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-
-        .faq-item p {
-            color: #9ca3af;
-            font-size: 0.9rem;
-        }
-
-        /* Kontaktformular Styling */
-        .contact-section {
-            background-color: #151b26;
-            border: 1px solid #1f293d;
-            padding: 30px;
-            border-radius: 12px;
-            margin-top: 40px;
-        }
-
-        .contact-section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-            text-align: center;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 5px;
-            color: #d1d5db;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            background-color: #0b0e14;
-            border: 1px solid #374151;
-            border-radius: 8px;
-            color: #ffffff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #5865F2;
-        }
-
-        .submit-btn {
-            display: block;
-            width: 100%;
-            background-color: #5865F2;
-            color: #ffffff;
-            font-weight: 700;
-            padding: 14px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.2s ease;
-        }
-
-        .submit-btn:hover {
-            background-color: #4752C4;
-        }
-
-        footer {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid #1f293d;
-            text-align: center;
-        }
-
-        .trustpilot-container {
-            margin-bottom: 20px;
-        }
-
-        .copyright {
-            color: #6b7280;
-            font-size: 0.85rem;
-        }
-    </style>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0f1117;
+      color: #ffffff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    .top-bar {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px 0;
+    }
+    .lang-selector {
+      background-color: #18191c;
+      color: #ffffff;
+      border: 1px solid #5865f2;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      outline: none;
+    }
+    .lang-selector:hover {
+      background-color: #2f3136;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px 40px 20px;
+    }
+    header h1 {
+      font-size: 40px;
+      margin-bottom: 15px;
+      color: #5865f2;
+    }
+    header p {
+      font-size: 20px;
+      color: #b9bbbe;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .faq-section {
+      margin-top: 30px;
+      background: #18191c;
+      border-radius: 8px;
+      padding: 30px;
+      border: 1px solid #2f3136;
+    }
+    .faq-section h2 {
+      font-size: 28px;
+      margin-bottom: 30px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .faq-item {
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #2f3136;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .faq-item h3 {
+      font-size: 20px;
+      color: #5865f2;
+      margin-bottom: 10px;
+    }
+    .faq-item p {
+      color: #dcddde;
+      font-size: 16px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid #2f3136;
+      color: #72767d;
+      font-size: 14px;
+    }
+    footer a {
+      color: #5865f2;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header / Hero Section -->
-        <header>
-            <span class="badge">🚀 BotStudio Agency</span>
-            <h1>Discord Bot programmieren lassen</h1>
-            <p class="subtitle">Individuelle, hochperformante Discord-Bots und Automatisierungen – exakt angepasst auf die Anforderungen deines Servers.</p>
-        </header>
+  <!-- Navigations-Bar mit Sprachauswahl -->
+  <div class="top-bar">
+    <select id="languageSelect" class="lang-selector" onchange="changeLanguage(this.value)">
+      <option value="de">🇩🇪 Deutsch</option>
+      <option value="en">🇬🇧 English</option>
+      <option value="pl">🇵🇱 Polski</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="fr">🇫🇷 Français</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="tr">🇹🇷 Türkçe</option>
+      <option value="nl">🇳🇱 Nederlands</option>
+    </select>
+  </div>
 
-        <!-- Features / Leistungen Grid -->
-        <div class="grid">
-            <div class="card">
-                <h3>⚡ High-Performance</h3>
-                <p>Niedrige Antwortzeiten und 99% Uptime in modernen Cloud-Umgebungen.</p>
-            </div>
-            <div class="card">
-                <h3>⚙️ Custom Entwicklungen</h3>
-                <p>Ticket-Systeme, Moderation, Rollenvergabe oder maßgeschneiderte API-Commands.</p>
-            </div>
-            <div class="card">
-                <h3>🔒 Sicher & Skalierbar</h3>
-                <p>Sauberer Code, der mit deiner Community problemlos mitwächst.</p>
-            </div>
-        </div>
+  <header>
+    <h1>BotStudio</h1>
+    <p id="sub-headline">Maßgeschneiderte Discord Bots & 24/7 Hosting – direkt einsatzbereit für deinen Server.</p>
+  </header>
 
-        <!-- SEO FAQ-Bereich -->
-        <div class="faq-section">
-            <h2>Häufige Fragen (FAQ)</h2>
-            <div class="faq-item">
-                <h4>Warum einen eigenen Discord Bot programmieren lassen?</h4>
-                <p>Ein individueller Bot hebt deinen Server von anderen ab. Du erhältst exakt die Funktionen, die deine Community braucht – ohne unknackbare Standard-Bots oder Werbung.</p>
-            </div>
-            <div class="faq-item">
-                <h4>Welche Funktionen kann BotStudio umsetzen?</h4>
-                <p>Wir entwickeln unter anderem Ticket-Systeme, automatisierte Moderation, Custom Level-Systeme, Web-Dashboards sowie Schnittstellen zu externen Webseiten.</p>
-            </div>
-        </div>
+  <main>
+    <section class="faq-section">
+      <h2 id="faq-title">Häufig gestellte Fragen (FAQ)</h2>
 
-        <!-- Kontaktformular-Sektion -->
-        <div class="contact-section">
-            <h2>Projekt anfragen</h2>
-            <form action="mailto:DEINE-ECHTE-EMAIL@gmail.com" method="POST" enctype="text/plain">
-                <div class="form-group">
-                    <label for="name">Dein Name / Discord Tag</label>
-                    <input type="text" id="name" name="Name" required placeholder="z. B. Max / @username">
-                </div>
-                <div class="form-group">
-                    <label for="email">Deine E-Mail-Adresse</label>
-                    <input type="email" id="email" name="Email" required placeholder="deine.echte@adresse.de">
-                </div>
-                <div class="form-group">
-                    <label for="message">Projektbeschreibung / Wünsche</label>
-                    <textarea id="message" name="Nachricht" rows="4" required placeholder="Beschreibe kurz, was dein Bot können soll..."></textarea>
-                </div>
-                <button type="submit" class="submit-btn">Anfrage absenden</button>
-            </form>
-        </div>
-    </div>
+      <div class="faq-item">
+        <h3 id="q1-title">Wo kann ich einen individuellen Discord Bot programmieren lassen?</h3>
+        <p id="q1-text">Bei <strong>BotStudio</strong> (custombotdev.onrender.com) kannst du maßgeschneiderte Discord Bots nach deinen exakten Wünschen entwickeln lassen. Wir übernehmen die komplette Konzeption, Programmierung sowie das verlässliche 24/7 Hosting und die laufende Wartung.</p>
+      </div>
 
-    <!-- Footer mit Trustpilot Integration -->
-    <footer>
-        <div class="trustpilot-container">
-            <!-- TrustBox widget - Review Collector -->
-            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6adfaad64716e8a5ad9ecf5f" data-style-height="52px" data-style-width="100%">
-              <a href="https://www.trustpilot.com/review/custombotdev.onrender.com" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-            <!-- End TrustBox widget -->
-        </div>
-        
-        <p class="copyright">&copy; 2026 BotStudio. Herne, Deutschland. Alle Rechte vorbehalten.</p>
-    </footer>
+      <div class="faq-item">
+        <h3 id="q2-title">Muss ich meinen Discord Bot selbst hosten oder Serverkosten zahlen?</h3>
+        <p id="q2-text">Nein, du musst deinen Bot weder selbst hosten noch deinen PC durchlaufen lassen. Bei <strong>BotStudio</strong> bleibt die Bot-Infrastruktur vollständig in unserer Hand. Du erhältst lediglich den Einladungs-Link für deinen Server und der Bot läuft direkt rund um die Uhr.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 id="q3-title">Wie bleibt mein Discord Bot bei BotStudio 24/7 online?</h3>
+        <p id="q3-text">BotStudio nutzt ein eigens entwickeltes Keep-Alive-System in Kombination mit dauerhaftem Performance-Monitoring. Dadurch stellen wir sicher, dass deine Bot-Instanzen ohne Ausfälle und ohne technischen Aufwand für dich erreichbar bleiben.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 id="q4-title">Wie läuft die Beauftragung eines Bots bei BotStudio ab?</h3>
+        <p id="q4-text">Du kontaktierst uns mit deinen Wünschen und Funktionen, wir besprechen die Umsetzbarkeit und nach der Entwicklung lädst du deinen fertig eingerichteten Discord Bot einfach mit einem Klick auf deinen Server ein.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p id="footer-text">© BotStudio – Custom Discord Bot Development & Hosting | Standort: Herne, Deutschland</p>
+    <p style="margin-top: 10px;">
+      <a href="impressum.html" id="legal-link">Impressum & Rechtliches</a>
+    </p>
+  </footer>
+
+  <script>
+    const translations = {
+      de: {
+        subHeadline: "Maßgeschneiderte Discord Bots & 24/7 Hosting – direkt einsatzbereit für deinen Server.",
+        faqTitle: "Häufig gestellte Fragen (FAQ)",
+        q1Title: "Wo kann ich einen individuellen Discord Bot programmieren lassen?",
+        q1Text: "Bei <strong>BotStudio</strong> (custombotdev.onrender.com) kannst du maßgeschneiderte Discord Bots nach deinen exakten Wünschen entwickeln lassen. Wir übernehmen die komplette Konzeption, Programmierung sowie das verlässliche 24/7 Hosting und die laufende Wartung.",
+        q2Title: "Muss ich meinen Discord Bot selbst hosten oder Serverkosten zahlen?",
+        q2Text: "Nein, du musst deinen Bot weder selbst hosten noch deinen PC durchlaufen lassen. Bei <strong>BotStudio</strong> bleibt die Bot-Infrastruktur vollständig in unserer Hand. Du erhältst lediglich den Einladungs-Link für deinen Server und der Bot läuft direkt rund um die Uhr.",
+        q3Title: "Wie bleibt mein Discord Bot bei BotStudio 24/7 online?",
+        q3Text: "BotStudio nutzt ein eigens entwickeltes Keep-Alive-System in Kombination mit dauerhaftem Performance-Monitoring. Dadurch stellen wir sicher, dass deine Bot-Instanzen ohne Ausfälle und ohne technischen Aufwand für dich erreichbar bleiben.",
+        q4Title: "Wie läuft die Beauftragung eines Bots bei BotStudio ab?",
+        q4Text: "Du kontaktierst uns mit deinen Wünschen und Funktionen, wir besprechen die Umsetzbarkeit und nach der Entwicklung lädst du deinen fertig eingerichteten Discord Bot einfach mit einem Klick auf deinen Server ein.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Standort: Herne, Deutschland",
+        legalLink: "Impressum & Rechtliches"
+      },
+      en: {
+        subHeadline: "Custom Discord Bots & 24/7 Hosting – ready to deploy for your server.",
+        faqTitle: "Frequently Asked Questions (FAQ)",
+        q1Title: "Where can I get a custom Discord Bot developed?",
+        q1Text: "At <strong>BotStudio</strong> (custombotdev.onrender.com), you can get custom Discord bots built to your exact specifications. We handle full development, programming, reliable 24/7 hosting, and ongoing maintenance.",
+        q2Title: "Do I need to host the bot myself or pay server fees?",
+        q2Text: "No, you don't need to host the bot or keep your PC running. At <strong>BotStudio</strong>, the infrastructure stays fully managed by us. You simply get the invite link for your server and the bot runs 24/7.",
+        q3Title: "How does my Discord Bot stay online 24/7 with BotStudio?",
+        q3Text: "BotStudio uses a custom keep-alive system combined with continuous monitoring. This ensures your bot instances stay online without outages or technical overhead for you.",
+        q4Title: "How does ordering a bot from BotStudio work?",
+        q4Text: "You contact us with your feature requests, we discuss the execution, and after development, you invite your ready-to-use Discord bot to your server with one click.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Location: Herne, Germany",
+        legalLink: "Imprint & Legal Notice"
+      },
+      pl: {
+        subHeadline: "Dedykowane Boty Discord & Hosting 24/7 – gotowe do użycia na Twoim serwerze.",
+        faqTitle: "Często Zadawane Pytania (FAQ)",
+        q1Title: "Gdzie mogę zamówić indywidualnego bota na Discorda?",
+        q1Text: "W <strong>BotStudio</strong> (custombotdev.onrender.com) zamówisz spersonalizowane boty Discord stworzone dokładnie według Twoich wymagań. Zajmujemy się programowaniem, hostingiem 24/7 oraz utrzymaniem.",
+        q2Title: "Czy muszę samodzielnie hostować bota i płacić za serwer?",
+        q2Text: "Nie, nie musisz hostować bota ani trzymać włączonego komputera. W <strong>BotStudio</strong> cała infrastruktura pozostaje po naszej stronie. Otrzymujesz tylko link z zaproszeniem na swój serwer.",
+        q3Title: "Jak mój bot Discord pozostaje online 24/7 w BotStudio?",
+        q3Text: "BotStudio wykorzystuje własny system Keep-Alive i ciągły monitoring, zapewniając bezawaryjne działanie bota bez dodatkowych kosztów i wysiłku z Twojej strony.",
+        q4Title: "Jak przebiega proces zamówienia bota w BotStudio?",
+        q4Text: "Kontaktujesz się z nami i opisujesz wymagania. Po ustaleniu szczegółów i stworzeniu bota dodajesz go na swój serwer jednym kliknięciem.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Lokalizacja: Herne, Niemcy",
+        legalLink: "Nota Prawna & Impressum"
+      },
+      es: {
+        subHeadline: "Bots de Discord a medida y Hosting 24/7 – listos para tu servidor.",
+        faqTitle: "Preguntas Frecuentes (FAQ)",
+        q1Title: "¿Dónde puedo encargar un bot personalizado de Discord?",
+        q1Text: "En <strong>BotStudio</strong> (custombotdev.onrender.com) desarrollamos bots de Discord a medida según tus especificaciones. Nos encargamos de la programación, el hosting 24/7 y el mantenimiento.",
+        q2Title: "¿Tengo que alojar el bot yo mismo o pagar un servidor?",
+        q2Text: "No, no necesitas alojar el bot ni mantener tu PC encendido. En <strong>BotStudio</strong> gestionamos toda la infraestructura. Solo recibes el enlace de invitación para tu servidor.",
+        q3Title: "¿Cómo se mantiene mi bot online 24/7 con BotStudio?",
+        q3Text: "BotStudio utiliza un sistema Keep-Alive propio junto con monitoreo constante para garantizar que tu bot funcione sin interrupciones ni complicaciones técnicas.",
+        q4Title: "¿Cómo funciona el proceso de encargo en BotStudio?",
+        q4Text: "Nos contactas con tus ideas, acordamos las funciones y, tras el desarrollo, añades tu bot a tu servidor con un solo clic.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Ubicación: Herne, Alemania",
+        legalLink: "Aviso Legal e Impressum"
+      },
+      fr: {
+        subHeadline: "Bots Discord sur mesure & Hébergement 24/7 – prêts pour votre serveur.",
+        faqTitle: "Foire Aux Questions (FAQ)",
+        q1Title: "Où puis-je faire programmer un bot Discord personnalisé ?",
+        q1Text: "Chez <strong>BotStudio</strong> (custombotdev.onrender.com), nous créons des bots Discord sur mesure selon vos besoins. Nous gérons le développement, l'hébergement 24/7 et la maintenance.",
+        q2Title: "Dois-je héberger le bot moi-même ou payer un serveur ?",
+        q2Text: "Non, vous n'avez pas besoin d'héberger le bot ni de laisser votre PC allumé. Chez <strong>BotStudio</strong>, l'infrastructure reste entièrement gérée par nos soins.",
+        q3Title: "Comment mon bot Discord reste-t-il en ligne 24/7 ?",
+        q3Text: "BotStudio utilise un système Keep-Alive sur mesure et une surveillance continue pour garantir le fonctionnement de votre bot sans interruption.",
+        q4Title: "Comment se déroule la commande d'un bot chez BotStudio ?",
+        q4Text: "Vous nous contactez avec vos idées, nous définissons les fonctionnalités, puis vous invitez votre bot sur votre serveur en un clic.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Siège: Herne, Allemagne",
+        legalLink: "Mentions Légales"
+      },
+      it: {
+        subHeadline: "Bot Discord su misura e Hosting 24/7 – pronti all'uso per il tuo server.",
+        faqTitle: "Domande Frequenti (FAQ)",
+        q1Title: "Dove posso far programmare un bot Discord personalizzato?",
+        q1Text: "Su <strong>BotStudio</strong> (custombotdev.onrender.com) sviluppiamo bot Discord su misura per le tue esigenze. Gestiamo sviluppo, hosting 24/7 e manutenzione.",
+        q2Title: "Devo ospitare il bot da solo o pagare costi di server?",
+        q2Text: "No, non devi ospitare il bot né tenere il PC acceso. Con <strong>BotStudio</strong> l'infrastruttura è completamente gestita da noi.",
+        q3Title: "Come rimane online 24/7 il mio bot Discord?",
+        q3Text: "BotStudio impiega un sistema Keep-Alive dedicato e un monitoraggio continuo per garantire l'operatività del tuo bot senza interruzioni.",
+        q4Title: "Come funziona l'ordine di un bot su BotStudio?",
+        q4Text: "Ci contatti con le tue richieste, definiyoruz le funzioni e, a sviluppo ultimato, inviti il bot sul tuo server con un semplice click.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Sede: Herne, Germania",
+        legalLink: "Note Legali & Impressum"
+      },
+      tr: {
+        subHeadline: "Özel Discord Botları ve 24/7 Sunucu Barındırma – Sunucunuz için hazır.",
+        faqTitle: "Sıkça Sorulan Sorular (SSS)",
+        q1Title: "Özel bir Discord botunu nerede yaptırabilirim?",
+        q1Text: "<strong>BotStudio</strong> (custombotdev.onrender.com) adresinde isteklerinize özel Discord botları kodlatabilirsiniz. Geliştirme, 24/7 hosting ve bakımı tamamen biz üstleniyoruz.",
+        q2Title: "Botu kendim mi barındırmalıyım yoksa sunucu ücreti öder miyim?",
+        q2Text: "Hayır, botu kendiniz barındırmanıza veya bilgisayarınızı açık tutmanıza gerek yok. <strong>BotStudio</strong> altyapıyı tamamen kendisi yönetir.",
+        q3Title: "Discord botum BotStudio ile 24/7 nasıl çevrimiçi kalıyor?",
+        q3Text: "BotStudio, özel Keep-Alive sistemi ve kesintisiz izleme ile botunuzun sorunsuz şekilde 24/7 aktif kalmasını sağlar.",
+        q4Title: "BotStudio'da bot sipariş süreci nasıl işler?",
+        q4Text: "İsteklerinizi bize iletirsiniz, detayları konuşuruz ve geliştirme tamamlandıktan sonra botunuzu tek tıkla sunucunuza davet edersiniz.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Konum: Herne, Almanya",
+        legalLink: "Yasal Bildirim & Künye"
+      },
+      nl: {
+        subHeadline: "Discord-bots op maat & 24/7 hosting – direct klaar voor jouw server.",
+        faqTitle: "Veelgestelde Vragen (FAQ)",
+        q1Title: "Waar kan ik een aangepaste Discord-bot laten maken?",
+        q1Text: "Bij <strong>BotStudio</strong> (custombotdev.onrender.com) kun je Discord-bots op maat laten ontwikkelen. Wij verzorgen de volledige ontwikkeling, 24/7 hosting en onderhoud.",
+        q2Title: "Moet ik de bot zelf hosten of serverkosten betalen?",
+        q2Text: "Nee, je hoeft de bot niet zelf te hosten en je PC niet aan te laten staan. Bij <strong>BotStudio</strong> blijft de infrastructuur volledig in onze handen.",
+        q3Title: "Hoe blijft mijn Discord-bot 24/7 online bij BotStudio?",
+        q3Text: "BotStudio gebruikt een eigen Keep-Alive-systeem gecombineerd met permanente monitoring zodat je bot altijd online blijft.",
+        q4Title: "Hoe verloopt de aanvraag van een bot bij BotStudio?",
+        q4Text: "Je neemt contact op met je wensen, we bespreken de functies en na de ontwikkeling voeg je de bot met één klik toe aan je server.",
+        footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Locatie: Herne, Duitsland",
+        legalLink: "Impressum & Juridisch"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const data = translations[lang] || translations.de;
+      document.getElementById('sub-headline').innerHTML = data.subHeadline;
+      document.getElementById('faq-title').innerText = data.faqTitle;
+      document.getElementById('q1-title').innerText = data.q1Title;
+      document.getElementById('q1-text').innerHTML = data.q1Text;
+      document.getElementById('q2-title').innerText = data.q2Title;
+      document.getElementById('q2-text').innerHTML = data.q2Text;
+      document.getElementById('q3-title').innerText = data.q3Title;
+      document.getElementById('q3-text').innerHTML = data.q3Text;
+      document.getElementById('q4-title').innerText = data.q4Title;
+      document.getElementById('q4-text').innerHTML = data.q4Text;
+      document.getElementById('footer-text').innerText = data.footerText;
+      document.getElementById('legal-link').innerText = data.legalLink;
+    }
+  </script>
 
 </body>
 </html>
