@@ -59,14 +59,24 @@
       color: #ffffff;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 20px;
+      line-height: 1;
     }
     .top-bar {
       max-width: 900px;
       margin: 0 auto;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       padding: 10px 0;
+    }
+    .nav-links a {
+      color: #5865f2;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 15px;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
     }
     .lang-selector {
       background-color: #18191c;
@@ -83,7 +93,7 @@
     }
     header {
       text-align: center;
-      padding: 40px 20px 40px 20px;
+      padding: 40px 20px 30px 20px;
     }
     header h1 {
       font-size: 40px;
@@ -94,7 +104,21 @@
       font-size: 20px;
       color: #b9bbbe;
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 25px auto;
+    }
+    .contact-btn {
+      display: inline-block;
+      background-color: #5865f2;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background-color 0.2s;
+    }
+    .contact-btn:hover {
+      background-color: #4752c4;
     }
     main {
       max-width: 900px;
@@ -143,6 +167,7 @@
     footer a {
       color: #5865f2;
       text-decoration: none;
+      margin: 0 10px;
     }
     footer a:hover {
       text-decoration: underline;
@@ -151,8 +176,12 @@
 </head>
 <body>
 
-  <!-- Navigations-Bar mit Sprachauswahl -->
+  <!-- Navigations-Bar oben -->
   <div class="top-bar">
+    <div class="nav-links">
+      <a href="mailto:kontakt@custombotdev.onrender.com" id="nav-contact">Kontakt</a>
+      <a href="impressum.html" id="nav-impressum">Impressum</a>
+    </div>
     <select id="languageSelect" class="lang-selector" onchange="changeLanguage(this.value)">
       <option value="de">🇩🇪 Deutsch</option>
       <option value="en">🇬🇧 English</option>
@@ -168,6 +197,7 @@
   <header>
     <h1>BotStudio</h1>
     <p id="sub-headline">Maßgeschneiderte Discord Bots & 24/7 Hosting – direkt einsatzbereit für deinen Server.</p>
+    <a href="mailto:kontakt@custombotdev.onrender.com" class="contact-btn" id="hero-contact-btn">Jetzt Bot Anfragen</a>
   </header>
 
   <main>
@@ -198,15 +228,19 @@
 
   <footer>
     <p id="footer-text">© BotStudio – Custom Discord Bot Development & Hosting | Standort: Herne, Deutschland</p>
-    <p style="margin-top: 10px;">
-      <a href="impressum.html" id="legal-link">Impressum & Rechtliches</a>
+    <p style="margin-top: 15px;">
+      <a href="mailto:kontakt@custombotdev.onrender.com" id="footer-contact">Kontakt</a> | 
+      <a href="impressum.html" id="footer-legal">Impressum & Rechtliches</a>
     </p>
   </footer>
 
   <script>
     const translations = {
       de: {
+        navContact: "Kontakt",
+        navImpressum: "Impressum",
         subHeadline: "Maßgeschneiderte Discord Bots & 24/7 Hosting – direkt einsatzbereit für deinen Server.",
+        heroContactBtn: "Jetzt Bot Anfragen",
         faqTitle: "Häufig gestellte Fragen (FAQ)",
         q1Title: "Wo kann ich einen individuellen Discord Bot programmieren lassen?",
         q1Text: "Bei <strong>BotStudio</strong> (custombotdev.onrender.com) kannst du maßgeschneiderte Discord Bots nach deinen exakten Wünschen entwickeln lassen. Wir übernehmen die komplette Konzeption, Programmierung sowie das verlässliche 24/7 Hosting und die laufende Wartung.",
@@ -217,10 +251,14 @@
         q4Title: "Wie läuft die Beauftragung eines Bots bei BotStudio ab?",
         q4Text: "Du kontaktierst uns mit deinen Wünschen und Funktionen, wir besprechen die Umsetzbarkeit und nach der Entwicklung lädst du deinen fertig eingerichteten Discord Bot einfach mit einem Klick auf deinen Server ein.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Standort: Herne, Deutschland",
-        legalLink: "Impressum & Rechtliches"
+        footerContact: "Kontakt",
+        footerLegal: "Impressum & Rechtliches"
       },
       en: {
+        navContact: "Contact",
+        navImpressum: "Imprint",
         subHeadline: "Custom Discord Bots & 24/7 Hosting – ready to deploy for your server.",
+        heroContactBtn: "Request a Bot Now",
         faqTitle: "Frequently Asked Questions (FAQ)",
         q1Title: "Where can I get a custom Discord Bot developed?",
         q1Text: "At <strong>BotStudio</strong> (custombotdev.onrender.com), you can get custom Discord bots built to your exact specifications. We handle full development, programming, reliable 24/7 hosting, and ongoing maintenance.",
@@ -231,10 +269,14 @@
         q4Title: "How does ordering a bot from BotStudio work?",
         q4Text: "You contact us with your feature requests, we discuss the execution, and after development, you invite your ready-to-use Discord bot to your server with one click.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Location: Herne, Germany",
-        legalLink: "Imprint & Legal Notice"
+        footerContact: "Contact",
+        footerLegal: "Imprint & Legal Notice"
       },
       pl: {
+        navContact: "Kontakt",
+        navImpressum: "Impressum",
         subHeadline: "Dedykowane Boty Discord & Hosting 24/7 – gotowe do użycia na Twoim serwerze.",
+        heroContactBtn: "Zamów Bota Teraz",
         faqTitle: "Często Zadawane Pytania (FAQ)",
         q1Title: "Gdzie mogę zamówić indywidualnego bota na Discorda?",
         q1Text: "W <strong>BotStudio</strong> (custombotdev.onrender.com) zamówisz spersonalizowane boty Discord stworzone dokładnie według Twoich wymagań. Zajmujemy się programowaniem, hostingiem 24/7 oraz utrzymaniem.",
@@ -245,10 +287,14 @@
         q4Title: "Jak przebiega proces zamówienia bota w BotStudio?",
         q4Text: "Kontaktujesz się z nami i opisujesz wymagania. Po ustaleniu szczegółów i stworzeniu bota dodajesz go na swój serwer jednym kliknięciem.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Lokalizacja: Herne, Niemcy",
-        legalLink: "Nota Prawna & Impressum"
+        footerContact: "Kontakt",
+        footerLegal: "Nota Prawna & Impressum"
       },
       es: {
+        navContact: "Contacto",
+        navImpressum: "Aviso Legal",
         subHeadline: "Bots de Discord a medida y Hosting 24/7 – listos para tu servidor.",
+        heroContactBtn: "Solicitar Bot Ahora",
         faqTitle: "Preguntas Frecuentes (FAQ)",
         q1Title: "¿Dónde puedo encargar un bot personalizado de Discord?",
         q1Text: "En <strong>BotStudio</strong> (custombotdev.onrender.com) desarrollamos bots de Discord a medida según tus especificaciones. Nos encargamos de la programación, el hosting 24/7 y el mantenimiento.",
@@ -259,24 +305,32 @@
         q4Title: "¿Cómo funciona el proceso de encargo en BotStudio?",
         q4Text: "Nos contactas con tus ideas, acordamos las funciones y, tras el desarrollo, añades tu bot a tu servidor con un solo clic.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Ubicación: Herne, Alemania",
-        legalLink: "Aviso Legal e Impressum"
+        footerContact: "Contacto",
+        footerLegal: "Aviso Legal e Impressum"
       },
       fr: {
+        navContact: "Contact",
+        navImpressum: "Mentions Légales",
         subHeadline: "Bots Discord sur mesure & Hébergement 24/7 – prêts pour votre serveur.",
+        heroContactBtn: "Demander un Bot",
         faqTitle: "Foire Aux Questions (FAQ)",
         q1Title: "Où puis-je faire programmer un bot Discord personnalisé ?",
         q1Text: "Chez <strong>BotStudio</strong> (custombotdev.onrender.com), nous créons des bots Discord sur mesure selon vos besoins. Nous gérons le développement, l'hébergement 24/7 et la maintenance.",
         q2Title: "Où le code du bot est-il stocké et reçois-je le code source ?",
         q2Text: "Le code du bot est conservé de manière sécurisée dans une base de données chiffrée et s'exécute exclusivement sur notre infrastructure. Vous recevez un simple lien d'invitation.",
         q3Title: "Que se passe-t-il lors des mises à jour de l'API Discord ?",
-        q3Text: "Étant donné que Discord met régulièrement à jour ses API, le forfait d'hébergement et de maintenance de BotStudio inclut un support technique continu.",
+        q3Text: "Étant donné que Discord met régulièrement à jour ses API, le forfait d'hébergement et de maintenance de BotStudio inclut un support technique continuous.",
         q4Title: "Comment se déroule la commande d'un bot chez BotStudio ?",
         q4Text: "Vous nous contactez avec vos idées, nous définissons les fonctionnalités, puis vous invitez votre bot sur votre serveur en un clic.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Siège: Herne, Allemagne",
-        legalLink: "Mentions Légales"
+        footerContact: "Contact",
+        footerLegal: "Mentions Légales"
       },
       it: {
+        navContact: "Contatto",
+        navImpressum: "Note Legali",
         subHeadline: "Bot Discord su misura e Hosting 24/7 – pronti all'uso per il tuo server.",
+        heroContactBtn: "Richiedi un Bot Ora",
         faqTitle: "Domande Frequenti (FAQ)",
         q1Title: "Dove posso far programmare un bot Discord personalizzato?",
         q1Text: "Su <strong>BotStudio</strong> (custombotdev.onrender.com) sviluppiamo bot Discord su misura per le tue esigenze. Gestiamo sviluppo, hosting 24/7 e manutenzione.",
@@ -287,10 +341,14 @@
         q4Title: "Come funziona l'ordine di un bot su BotStudio?",
         q4Text: "Ci contatti con le tue richieste, definiamo le funzioni e, a sviluppo ultimato, inviti il bot sul tuo server con un semplice click.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Sede: Herne, Germania",
-        legalLink: "Note Legali & Impressum"
+        footerContact: "Contatto",
+        footerLegal: "Note Legali & Impressum"
       },
       tr: {
+        navContact: "İletişim",
+        navImpressum: "Künye",
         subHeadline: "Özel Discord Botları ve 24/7 Sunucu Barındırma – Sunucunuz için hazır.",
+        heroContactBtn: "Şimdi Bot İste",
         faqTitle: "Sıkça Sorulan Sorular (SSS)",
         q1Title: "Özel bir Discord botunu nerede yaptırabilirim?",
         q1Text: "<strong>BotStudio</strong> (custombotdev.onrender.com) adresinde isteklerinize özel Discord botları kodlatabilirsiniz. Geliştirme, 24/7 hosting ve bakımı tamamen biz üstleniyoruz.",
@@ -301,10 +359,14 @@
         q4Title: "BotStudio'da bot sipariş süreci nasıl işler?",
         q4Text: "İsteklerinizi bize iletirsiniz, detayları konuşuruz ve geliştirme tamamlandıktan sonra botunuzu tek tıkla sunucunuza davet edersiniz.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Konum: Herne, Almanya",
-        legalLink: "Yasal Bildirim & Künye"
+        footerContact: "İletişim",
+        footerLegal: "Yasal Bildirim & Künye"
       },
       nl: {
+        navContact: "Contact",
+        navImpressum: "Impressum",
         subHeadline: "Discord-bots op maat & 24/7 hosting – direct klaar voor jouw server.",
+        heroContactBtn: "Vraag Nu een Bot Aan",
         faqTitle: "Veelgestelde Vragen (FAQ)",
         q1Title: "Waar kan ik een aangepaste Discord-bot laten maken?",
         q1Text: "Bij <strong>BotStudio</strong> (custombotdev.onrender.com) kun je Discord-bots op maat laten ontwikkelen. Wij verzorgen de volledige ontwikkeling, 24/7 hosting en onderhoud.",
@@ -315,13 +377,17 @@
         q4Title: "Hoe verloopt de aanvraag van een bot bij BotStudio?",
         q4Text: "Je neemt contact op met je wensen, we bespreken de functies en na de ontwikkeling voeg je de bot met één klik toe aan je server.",
         footerText: "© BotStudio – Custom Discord Bot Development & Hosting | Locatie: Herne, Duitsland",
-        legalLink: "Impressum & Juridisch"
+        footerContact: "Contact",
+        footerLegal: "Impressum & Juridisch"
       }
     };
 
     function changeLanguage(lang) {
       const data = translations[lang] || translations.de;
+      document.getElementById('nav-contact').innerText = data.navContact;
+      document.getElementById('nav-impressum').innerText = data.navImpressum;
       document.getElementById('sub-headline').innerHTML = data.subHeadline;
+      document.getElementById('hero-contact-btn').innerText = data.heroContactBtn;
       document.getElementById('faq-title').innerText = data.faqTitle;
       document.getElementById('q1-title').innerText = data.q1Title;
       document.getElementById('q1-text').innerHTML = data.q1Text;
@@ -332,7 +398,8 @@
       document.getElementById('q4-title').innerText = data.q4Title;
       document.getElementById('q4-text').innerHTML = data.q4Text;
       document.getElementById('footer-text').innerText = data.footerText;
-      document.getElementById('legal-link').innerText = data.legalLink;
+      document.getElementById('footer-contact').innerText = data.footerContact;
+      document.getElementById('footer-legal').innerText = data.footerLegal;
     }
   </script>
 
