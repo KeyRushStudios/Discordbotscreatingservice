@@ -4,27 +4,174 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Google Search Console Verifizierung -->
-    <meta name="google-site-verification" content="g70-bWpdrE4WSvIk8IENT3uEr4O9ZXHoccIxroLYl10" />
-
+    <!-- SEO & Verifizierung -->
     <title>BotStudio – Custom Discord Bots & Development</title>
     <meta name="description" content="BotStudio entwickelt maßgeschneiderte Discord-Bots für deinen Server. High-Performance, sauberer Code und individuelle Dashboards. Jetzt anfragen!">
+    <meta name="google-site-verification" content="g70-bWpdrE4WSvIk8IENT3uEr4O9ZXHoccIxroLYl10" />
 
-    <!-- TrustBox Script im Head laden -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- TrustBox script -->
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0e14;
+            color: #f3f4f6;
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .badge {
+            background-color: rgba(99, 102, 241, 0.15);
+            color: #818cf8;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #ffffff, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #9ca3af;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #5865F2; /* Discord Blurple */
+            color: #ffffff;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #4752C4;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .card {
+            background-color: #151b26;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #1f293d;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #60a5fa;
+        }
+
+        .card p {
+            color: #9ca3af;
+            font-size: 0.95rem;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid #1f293d;
+            text-align: center;
+        }
+
+        .trustpilot-container {
+            margin-bottom: 25px;
+        }
+
+        .copyright {
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Hier steht dein bisheriger Website-Inhalt -->
+    <div class="container">
+        <!-- Header / Hero Section -->
+        <header>
+            <span class="badge">🚀 BotStudio Agency</span>
+            <h1>Maßgeschneiderte Discord-Bots für deine Community</h1>
+            <p class="subtitle">Wir entwickeln individuelle, hochperformante Discord-Bots und Automatisierungen – exakt angepasst auf die Anforderungen deines Servers.</p>
+            <a href="mailto:kontakt@botstudio.dev" class="cta-button">Jetzt Bot anfragen</a>
+        </header>
 
-
-    <!-- Trustpilot Widget Integration -->
-    <div style="padding: 20px 0; text-align: center;">
-      <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6adfaad64716e8a5ad9ecf5f" data-style-height="52px" data-style-width="100%">
-        <a href="https://www.trustpilot.com/review/custombotdev.onrender.com" target="_blank" rel="noopener">Trustpilot</a>
-      </div>
+        <!-- Features / Leistungen Grid -->
+        <div class="grid">
+            <div class="card">
+                <h3>⚡ High-Performance</h3>
+                <p>Unsere Bots laufen mit extrem niedrigen Antwortzeiten und 99% Uptime in modernen Cloud-Umgebungen.</p>
+            </div>
+            <div class="card">
+                <h3>⚙️ Individuelle Features</h3>
+                <p>Egal ob Ticket-Systeme, Moderation, Rollenvergabe oder API-Integrationen – du bestimmst die Logik.</p>
+            </div>
+            <div class="card">
+                <h3>🔒 Sicher & Skalierbar</h3>
+                <p>Sauberer, strukturierter Code, der mit deiner Community mitwächst und höchste Sicherheitsstandards erfüllt.</p>
+            </div>
+        </div>
     </div>
-    <!-- End TrustBox widget -->
+
+    <!-- Footer mit Trustpilot Integration -->
+    <footer>
+        <div class="trustpilot-container">
+            <!-- TrustBox widget - Review Collector -->
+            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="6adfaad64716e8a5ad9ecf5f" data-style-height="52px" data-style-width="100%">
+              <a href="https://www.trustpilot.com/review/custombotdev.onrender.com" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+            <!-- End TrustBox widget -->
+        </div>
+        
+        <p class="copyright">&copy; 2026 BotStudio. Herne, Deutschland. Alle Rechte vorbehalten.</p>
+    </footer>
 
 </body>
 </html>
