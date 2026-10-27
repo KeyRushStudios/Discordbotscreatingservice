@@ -1,278 +1,334 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BotStudio - Custom Bots & Hosting</title>
+    <title>BotStudio | Custom Bot Development & Managed Hosting</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            red: '#e63946',
+                            redDark: '#990000',
+                            bg: '#0b0e14',
+                            card: '#151a21',
+                            cardLight: '#1c232d',
+                            border: '#232a34'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-color: #0b0e14;
-            --card-bg: #151a21;
-            --accent-color: #e63946;
-            --text-color: #f1f1f1;
-            --text-muted: #9aa0a6;
-            --border-color: #232a34;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            background-color: #0b0e14;
+            color: #f1f5f9;
         }
-
-        header {
-            text-align: center;
-            padding: 30px 0;
+        .red-glow {
+            box-shadow: 0 0 25px rgba(230, 57, 70, 0.25);
         }
-
-        .logo-box {
-            width: 120px;
-            height: 120px;
-            background: #111;
-            border-radius: 20px;
-            margin: 0 auto 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 25px rgba(230, 57, 70, 0.2);
+        .red-glow-sm {
+            box-shadow: 0 0 12px rgba(230, 57, 70, 0.3);
         }
-
-        .logo-icon {
-            width: 60px;
-            height: 50px;
-            background: linear-gradient(185deg, #ff4d4d, #990000);
-            border-radius: 10px;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-eyes {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 4px;
-        }
-
-        .logo-eye {
-            width: 8px;
-            height: 8px;
-            background-color: #990000;
-        }
-
-        .logo-prompt {
-            color: #fff;
-            font-family: monospace;
-            font-weight: bold;
-            font-size: 14px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        p.subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
-        }
-
-        .trustpilot-btn {
-            display: inline-block;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 10px 20px;
-            border-radius: 30px;
-            color: #fff;
-            text-decoration: none;
-            margin: 20px 0;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .trustpilot-btn span {
-            color: #00b67a;
-        }
-
-        .section-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .section-card h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #fff;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            color: #fff;
-            font-size: 1rem;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        button.submit-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: var(--accent-color);
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        button.submit-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* Code-Vorschau Trenner */
-        .code-divider {
-            background-color: #0d1117;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 12px 15px;
-            font-family: monospace;
-            color: #7ef7a0;
-            font-size: 0.85rem;
-            margin: 30px 0;
-            overflow-x: auto;
-        }
-
-        /* FAQ Styling */
-        .faq-item {
-            border-bottom: 1px solid var(--border-color);
-            padding: 12px 0;
-        }
-
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-
-        .faq-question {
-            font-weight: bold;
-            color: #fff;
-            margin-bottom: 5px;
-        }
-
-        .faq-answer {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            margin-top: 30px;
-            padding-bottom: 20px;
+        .gradient-red-text {
+            background: linear-gradient(135deg, #ff4d4d 0%, #e63946 50%, #990000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased text-slate-100 selection:bg-red-600 selection:text-white">
 
-    <header>
-        <div class="logo-box">
-            <div class="logo-icon">
-                <div class="logo-eyes">
-                    <div class="logo-eye"></div>
-                    <div class="logo-eye"></div>
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/90 border-b border-slate-800/80">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            
+            <!-- Logo Header -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-slate-900 border border-slate-700/80 rounded-xl flex items-center justify-center relative overflow-hidden group-hover:border-red-500/80 transition duration-300">
+                    <div class="w-7 h-6 bg-gradient-to-b from-red-500 to-red-800 rounded-md flex flex-col items-center justify-center shadow-sm">
+                        <div class="flex gap-1 mb-0.5">
+                            <div class="w-1.5 h-1.5 bg-red-950 rounded-xs"></div>
+                            <div class="w-1.5 h-1.5 bg-red-950 rounded-xs"></div>
+                        </div>
+                        <span class="text-white font-mono text-[9px] font-bold leading-none">&gt;_</span>
+                    </div>
                 </div>
-                <div class="logo-prompt">&gt;_</div>
-            </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-xl tracking-wider text-white">BOT<span class="gradient-red-text">STUDIO</span></span>
+                    <span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Custom Bots & Hosting</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#services" class="hover:text-red-400 transition">Leistungen</a>
+                <a href="#faq" class="hover:text-red-400 transition">FAQ</a>
+                <a href="#contact" class="hover:text-red-400 transition">Kontakt</a>
+                <a href="#impressum" class="hover:text-red-400 transition">Impressum</a>
+            </nav>
+
+            <!-- Action Button -->
+            <a href="#contact" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-red-700 text-white font-semibold text-sm hover:brightness-110 transition shadow-lg shadow-red-600/20">
+                Anfrage starten
+            </a>
         </div>
-        <h1>BOTSTUDIO</h1>
-        <p class="subtitle">Maßgeschneiderte Bots, Hosting & Rundum-Wartung</p>
-        
-        <a href="https://de.trustpilot.com/review/botstudio" target="_blank" class="trustpilot-btn">
-            Bewertet auf <span>Trustpilot</span> (3.7 ★)
-        </a>
     </header>
 
-    <div class="section-card">
-        <h2>Projekt anfragen</h2>
-        <!-- Formspree mit method="POST" behoben -->
-        <form action="https://formspree.io/f/xwllla" method="POST">
-            <div class="form-group">
-                <label for="email">Deine E-Mail / Kontakt</label>
-                <input type="text" id="email" name="email" placeholder="E-Mail oder Discord Tag" required>
+    <!-- Hero Section -->
+    <section class="relative py-16 md:py-24 overflow-hidden border-b border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    
+                    <!-- Trustpilot Badge with exact requested link -->
+                    <a href="https://de.trustpilot.com/review/custombotdev.onrender.com" target="_blank" rel="noopener noreferrer" 
+                       class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-slate-900 border border-slate-700/70 hover:border-emerald-500/60 transition group text-xs sm:text-sm">
+                        <span class="text-emerald-400 font-bold flex items-center gap-1">
+                            <svg class="w-4 h-4 fill-emerald-400" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            3.7 / 5.0
+                        </span>
+                        <span class="text-slate-400">|</span>
+                        <span class="text-slate-300 group-hover:text-white transition">Bewertet auf <strong class="text-white underline decoration-emerald-500">Trustpilot</strong></span>
+                    </a>
+
+                    <h1 class="text-4xl sm:text-6xl font-black text-white leading-tight tracking-tight">
+                        Dein Discord Bot. <br>
+                        <span class="gradient-red-text">Vollständig gemanagt.</span>
+                    </h1>
+
+                    <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0">
+                        Wir programmieren, hosten und warten deinen individuellen Bot. Keine eigenen Server nötig – wir übernehmen Einrichtung, Uptime und Updates für dich.
+                    </p>
+
+                    <div class="pt-2 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#contact" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-red-600 via-red-600 to-red-700 text-white font-bold text-center hover:opacity-90 transition shadow-xl shadow-red-600/25">
+                            Jetzt Projekt anfragen
+                        </a>
+                        <a href="#services" class="px-8 py-3.5 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 text-slate-300 font-semibold text-center transition">
+                            Mehr erfahren
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Visual -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="w-full max-w-sm bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-2xl red-glow relative overflow-hidden">
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-red-600/20 border border-red-500/40 rounded-lg flex items-center justify-center font-mono text-xs font-bold text-red-400">&gt;_</div>
+                                <span class="font-mono text-sm font-semibold text-white">BotStudio Core</span>
+                            </div>
+                            <span class="flex h-2.5 w-2.5 relative">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                            </span>
+                        </div>
+                        <div class="space-y-3 font-mono text-xs text-slate-300">
+                            <div class="p-2.5 rounded bg-slate-950 border border-slate-800/80">
+                                <span class="text-slate-500">[SYSTEM]</span> <span class="text-emerald-400">24/7 Managed Uptime Active</span>
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-950 border border-slate-800/80">
+                                <span class="text-slate-500">[SERVICE]</span> Custom Logic & Database Integrated
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-950 border border-slate-800/80">
+                                <span class="text-slate-500">[PAYMENT]</span> USDT / Crypto & Vouchers Accepted
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="form-group">
-                <label for="message">Was soll dein Bot können?</label>
-                <textarea id="message" name="message" rows="5" placeholder="Beschreibe deine Wünsche (z. B. Ticketsystem, Moderation, Custom Features)..." required></textarea>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 border-b border-slate-800/50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-mono text-red-500 uppercase tracking-widest">// Unser Angebot</span>
+                <h2 class="text-3xl font-extrabold text-white mt-2">Warum BotStudio wählen?</h2>
+                <p class="text-slate-400 text-sm mt-3">Wir bieten ein schlüsselfertiges Komplettpaket ohne technische Hürden für dich.</p>
             </div>
-            <button type="submit" class="submit-btn">Anfrage abschicken</button>
-        </form>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-red-500/40 transition duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 font-bold text-xl">
+                        💻
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Custom Bot Erstellung</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Ticketsysteme, Moderations-Tools, Economy-Systeme oder ganz individuelle Funktionen genau nach deinen Wünschen.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-red-500/40 transition duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 font-bold text-xl">
+                        ☁️
+                    </div>
+                    <h3 class="text-lg font-bold text-white">24/7 Managed Hosting</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Kein eigener V-Server erforderlich. Wir betreiben deinen Bot rund um die Uhr auf unserer Infrastruktur.
+                    </p>
+                </div>
+
+                <div class="p-8 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-red-500/40 transition duration-300 space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 font-bold text-xl">
+                        🔧
+                    </div>
+                    <h3 class="text-lg font-bold text-white">Wartung & Updates</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Sollten sich Discord-Schnittstellen ändern oder Anpassungen nötig sein, führen wir die Wartung nahtlos für dich durch.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Snippet Divider before FAQ -->
+    <div class="py-10 max-w-4xl mx-auto px-4">
+        <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 font-mono text-xs text-slate-400 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-red-500 font-bold">&gt;</span>
+                <span>botstudio.deploy({ status: "ready", faq: "loaded" });</span>
+            </div>
+            <span class="text-slate-600 hidden sm:inline">// Smooth Operations</span>
+        </div>
     </div>
 
-    <!-- Optischer Code-Trenner vor der FAQ -->
-    <div class="code-divider">
-        <code>// BotStudio System Status: Online | 24/7 Managed Hosting Active</code>
-    </div>
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 border-b border-slate-800/50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <span class="text-xs font-mono text-red-500 uppercase tracking-widest">// Antworten</span>
+                <h2 class="text-3xl font-extrabold text-white mt-2">Häufig gestellte Fragen (FAQ)</h2>
+            </div>
 
-    <div class="section-card">
-        <h2>Häufig gestellte Fragen (FAQ)</h2>
-        
-        <div class="faq-item">
-            <div class="faq-question">Wie läuft die Erstellung ab?</div>
-            <div class="faq-answer">Du teilst uns deine Wünsche mit, wir entwickeln deinen Bot und übernehmen die komplette Einrichtung sowie den Server-Betrieb.</div>
+            <div class="space-y-4">
+                <div class="border border-slate-800 rounded-xl bg-slate-900/60 overflow-hidden">
+                    <button onclick="toggleFaq(1)" class="w-full px-6 py-4 text-left flex justify-between items-center text-white font-semibold focus:outline-none">
+                        <span>Muss ich für das Hosting einen eigenen Server mieten?</span>
+                        <span id="faq-icon-1" class="text-red-500 font-mono font-bold">+</span>
+                    </button>
+                    <div id="faq-answer-1" class="hidden px-6 pb-4 text-slate-400 text-sm border-t border-slate-800/60 pt-3">
+                        Nein, bei unserem Managed Service hosten wir deinen Bot vollständig. Du musst dich um keine Server-Einrichtung, Linux-Befehle oder Monatspakete kümmern.
+                    </div>
+                </div>
+
+                <div class="border border-slate-800 rounded-xl bg-slate-900/60 overflow-hidden">
+                    <button onclick="toggleFaq(2)" class="w-full px-6 py-4 text-left flex justify-between items-center text-white font-semibold focus:outline-none">
+                        <span>Welche Zahlungsmethoden werden unterstützt?</span>
+                        <span id="faq-icon-2" class="text-red-500 font-mono font-bold">+</span>
+                    </button>
+                    <div id="faq-answer-2" class="hidden px-6 pb-4 text-slate-400 text-sm border-t border-slate-800/60 pt-3">
+                        Zahlungen können unkompliziert und flexibel über Kryptowährungen (wie USDT) oder nach individueller Absprache (z. B. Gutscheine) abgewickelt werden.
+                    </div>
+                </div>
+
+                <div class="border border-slate-800 rounded-xl bg-slate-900/60 overflow-hidden">
+                    <button onclick="toggleFaq(3)" class="w-full px-6 py-4 text-left flex justify-between items-center text-white font-semibold focus:outline-none">
+                        <span>Wie schnell ist mein Bot einsatzbereit?</span>
+                        <span id="faq-icon-3" class="text-red-500 font-mono font-bold">+</span>
+                    </button>
+                    <div id="faq-answer-3" class="hidden px-6 pb-4 text-slate-400 text-sm border-t border-slate-800/60 pt-3">
+                        Standardmäßige Bots sind meistens innerhalb von 24 bis 48 Stunden fertig programmiert und online geschaltet.
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <div class="faq-question">Muss ich mich um Hosting oder Updates kümmern?</div>
-            <div class="faq-answer">Nein, wir übernehmen das komplette Hosting, regelmäßige Updates und die Wartung für dich.</div>
+    <!-- Dedicated Contact Form Section -->
+    <section id="contact" class="py-20 border-b border-slate-800/50">
+        <div class="max-w-2xl mx-auto px-4 sm:px-6">
+            <div class="bg-slate-900 border border-slate-800 rounded-3xl p-8 sm:p-10 shadow-2xl relative">
+                
+                <div class="text-center mb-8">
+                    <span class="text-xs font-mono text-red-500 uppercase tracking-widest">// Direktkontakt</span>
+                    <h2 class="text-3xl font-extrabold text-white mt-1">Kontakt & Anfrage</h2>
+                    <p class="text-slate-400 text-sm mt-2">Schreib uns dein Anliegen – die Anfrage wird direkt an unser E-Mail Postfach weitergeleitet.</p>
+                </div>
+
+                <!-- Formspree Form with POST method correctly configured -->
+                <form action="https://formspree.io/f/xwllla" method="POST" class="space-y-5">
+                    <div>
+                        <label for="name" class="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Dein Name / Discord Tag</label>
+                        <input type="text" id="name" name="name" required placeholder="z. B. Alex oder User#1234" 
+                            class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition text-sm">
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Deine E-Mail Adresse</label>
+                        <input type="email" id="email" name="email" required placeholder="deine-email@beispiel.de" 
+                            class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition text-sm">
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">Nachricht / Bot-Wünsche</label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Welche Funktionen soll der Bot enthalten?" 
+                            class="w-full px-4 py-3.5 rounded-xl bg-slate-950 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500 transition text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                        class="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 via-red-600 to-red-700 text-white font-bold text-sm tracking-wide hover:brightness-110 transition shadow-lg shadow-red-600/25">
+                        Nachricht Absenden 🚀
+                    </button>
+                </form>
+            </div>
         </div>
+    </section>
 
-        <div class="faq-item">
-            <div class="faq-question">Welche Zahlungsmethoden werden akzeptiert?</div>
-            <div class="faq-answer">Wir akzeptieren unkompliziert Zahlungen über Kryptowährungen (z. B. USDT) sowie Gutscheine.</div>
+    <!-- Restored Full Impressum Section -->
+    <section id="impressum" class="py-16 bg-slate-950 border-b border-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-slate-900/60 border border-slate-800/80 rounded-2xl p-6 sm:p-8 space-y-4 text-xs sm:text-sm text-slate-400">
+                <h2 class="text-xl font-bold text-white mb-2">Impressum</h2>
+                <p class="font-semibold text-slate-300">Angaben gemäß § 5 TMG / Rechtlicher Hinweis:</p>
+                <div class="space-y-1">
+                    <p><strong class="text-slate-200">Dienstanbieter:</strong> BotStudio Development</p>
+                    <p><strong class="text-slate-200">Kontakt:</strong> Über das Formular im Bereich "Kontakt" oder per Direktnachricht über verknüpfte Kanäle.</p>
+                    <p><strong class="text-slate-200">Online-Streitbeilegung:</strong> Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit.</p>
+                </div>
+                <div class="pt-2 text-[11px] text-slate-500 leading-relaxed border-t border-slate-800/60">
+                    <p>Haftungsausschluss: Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        &copy; BotStudio – Alle Rechte vorbehalten.
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-950 text-center text-slate-500 text-xs font-mono">
+        <p>© 2026 BotStudio. Alle Rechte vorbehalten.</p>
     </footer>
 
+    <!-- FAQ Toggle Script -->
+    <script>
+        function toggleFaq(id) {
+            const answer = document.getElementById(`faq-answer-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                icon.textContent = '-';
+            } else {
+                answer.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
+    </script>
 </body>
 </html>
+```
